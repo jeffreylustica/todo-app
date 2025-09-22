@@ -1,10 +1,13 @@
-const Counter = ({todos}) => {
-  const todosLength = todos.length;
-  const completedTodoLength = todos.filter(todo => todo.isCompleted === true).length;
+type CounterProps = {
+  totalNumberOfTodos: number,
+  numberOfCompletedTodos: number
+}
+
+const Counter = ({totalNumberOfTodos, numberOfCompletedTodos}: CounterProps) => {
   return (
     <div>
       <p>
-        <b>{completedTodoLength}</b> / {todosLength} Completed
+        <b>{numberOfCompletedTodos}</b> / {totalNumberOfTodos} Completed
       </p>
     </div>
   );

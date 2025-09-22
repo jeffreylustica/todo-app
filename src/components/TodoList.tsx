@@ -1,6 +1,13 @@
-import DeleteButton from "./DeleteButton.jsx"
+import type { Todo } from "../App";
+import DeleteButton from "./DeleteButton";
 
-const TodoList = ({todos, handleToggleTodo, handleDeleteTodo}) => {
+type TodoListProps = {
+  todos: Todo[], 
+  handleToggleTodo: (id: number) => void,
+  handleDeleteTodo: (id: number) => void
+}
+
+const TodoList = ({todos, handleToggleTodo, handleDeleteTodo}: TodoListProps) => {
   return (
     <ul className="p-2">
       {todos.length === 0 && (

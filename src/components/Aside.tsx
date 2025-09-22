@@ -1,7 +1,11 @@
 import AddTodoForm from "./AddTodoForm";
 import Button from "./Button";
 
-const Aside = ({handleAddTodo}) => {
+type AsideProps = {
+  handleAddTodo:(todoText: string) => void
+}
+
+const Aside = ({handleAddTodo}: AsideProps) => {
   return (
     <aside className="col-[2/3] row-[2/3] bg-neutral-100 p-2 flex flex-col">
       <AddTodoForm handleAddTodo={handleAddTodo}/>
