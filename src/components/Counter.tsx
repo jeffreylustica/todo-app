@@ -1,9 +1,8 @@
-type CounterProps = {
-  totalNumberOfTodos: number,
-  numberOfCompletedTodos: number
-}
+import { useContext } from "react";
+import { TodosContext } from "../contexts/TodosContextProvider";
 
-const Counter = ({totalNumberOfTodos, numberOfCompletedTodos}: CounterProps) => {
+const Counter = () => {
+  const {totalNumberOfTodos, numberOfCompletedTodos} = useContext(TodosContext)
   return (
     <div>
       <p>

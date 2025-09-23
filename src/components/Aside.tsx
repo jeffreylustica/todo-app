@@ -1,11 +1,11 @@
+import { useContext } from "react";
 import AddTodoForm from "./AddTodoForm";
 import Button from "./Button";
+import { TodosContext } from "../contexts/TodosContextProvider";
 
-type AsideProps = {
-  handleAddTodo:(todoText: string) => void
-}
-
-const Aside = ({handleAddTodo}: AsideProps) => {
+const Aside = () => {
+  const {handleAddTodo} = useContext(TodosContext)
+  
   return (
     <aside className="col-[2/3] row-[2/3] bg-neutral-100 p-2 flex flex-col">
       <AddTodoForm handleAddTodo={handleAddTodo}/>
