@@ -1,20 +1,15 @@
-
-import { useContext } from "react";
 import DeleteButton from "./DeleteButton";
-import { TodosContext } from "../contexts/TodosContextProvider";
+import { useTodoContext } from "../lib/hooks";
 
 const TodoList = () => {
-  const context = useContext(TodosContext)
-  if (!context) {
-    throw new Error("Forgot to add provider / context possibly null")
-  }
+  const { todos, handleToggleTodo, handleDeleteTodo } = useTodoContext();
 
-  const {todos, handleToggleTodo, handleDeleteTodo} = useContext(TodosContext)
-  
   return (
     <ul className="p-2">
       {todos.length === 0 && (
-        <li className="h-full flex justify-center items-center font-semibold">Start adding a todo</li>
+        <li className="h-full flex justify-center items-center font-semibold">
+          Start adding a todo
+        </li>
       )}
 
       {todos.map((todo) => (
@@ -30,7 +25,7 @@ const TodoList = () => {
           >
             {todo.text}
           </span>
-          <DeleteButton id={todo.id} handleDeleteTodo={handleDeleteTodo}/>
+          <DeleteButton id={todo.id} handleDeleteTodo={handleDeleteTodo} />
         </li>
       ))}
     </ul>
